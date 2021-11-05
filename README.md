@@ -1,7 +1,7 @@
 CICD Pipeline for Deploying JAVA application into Azure Kubernetes Service cluster from Azure container registry
 
 Step-1
-Create Linux machine in VM.
+Create Linux machine i VM    .
 
 Here size of vm is D2s_V3(8GB RAM & 2 Vcpus) – high cost, you can use Standard_B2(4GB RAM & 2 Vcpus) to reduce cost -choose as per your load requirement.
  
