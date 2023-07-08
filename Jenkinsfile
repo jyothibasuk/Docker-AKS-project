@@ -14,10 +14,11 @@ pipeline {
         stage ('Code Analysis') {
 
             steps {
-                sh '''mvn sonar:sonar \\
-                -Dsonar.projectKey=Poc-AKS1 \\
-                -Dsonar.host.url=http://52.140.116.20:9000 \\
-                -Dsonar.login=e5ae4daa1e4c7cffe91ed213468a069ce581ff69'''
+                sh '''mvn clean verify sonar:sonar \
+                -Dsonar.projectKey=jk-2_08.07.2023 \
+                -Dsonar.projectName='jk-2_08.07.2023' \
+                -Dsonar.host.url=http://20.185.219.50:9000 \
+                -Dsonar.token=sqp_ad648a6a10b22df7487509fee76e0172305e2ba8'''
             }
         }
 
