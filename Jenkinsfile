@@ -42,7 +42,7 @@ pipeline {
         
         stage('Docker Build & Push image'){
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'dockerhubpassword', usernameVariable: 'dockerhubuser')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'dockerhubpassword', usernameVariable: 'dockerhubuser')])  {
                     sh "docker login -u $dockerhubuser -p $dockerhubpassword"
                 }
                 sh '''docker build -t poc-1:v1.$BUILD_ID .
