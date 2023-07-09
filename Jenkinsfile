@@ -36,7 +36,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'jfrog-dev', passwordVariable: 'jfrog-pass', usernameVariable: 'jfrog-user')])  {
                 sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
-                curl -u$jfrog-user:$jfrog-pass -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
+                curl -u $jfrog-user:$jfrog-pass -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
                 }
             }
         }
@@ -46,8 +46,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'dockerhubpassword', usernameVariable: 'dockerhubuser')])  {
                     sh "docker login -u $dockerhubuser -p $dockerhubpassword"
                 }
-                sh '''docker build -t poc-1:v1.$BUILD_ID .
-                docker tag poc-1:v1.$BUILD_ID jyothibasuk/poc-1:v1.$BUILD_ID
+                sh '''docker build -t sample-1:v1.$BUILD_ID .
+                docker tag poc-1:v1.$BUILD_ID jyothibasuk/sample-1:v1.$BUILD_ID
                 docker push jyothibasuk/sample-1:v1.$BUILD_ID
                 docker rmi poc-1:v1.$BUILD_ID
                 docker rmi jyothibasuk/sample-1:v1.$BUILD_ID''' 
