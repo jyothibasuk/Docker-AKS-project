@@ -47,7 +47,7 @@ pipeline {
                 }
                 sh '''docker build -t poc-1:v1.$BUILD_ID .
                 docker tag poc-1:v1.$BUILD_ID jyothibasuk/poc-1:v1.$BUILD_ID
-                docker push jyothibasuk/poc-1:v1.$BUILD_ID
+                docker push jyothibasuk/sample-1:v1.$BUILD_ID
                 docker rmi poc-1:v1.$BUILD_ID
                 docker rmi jyothibasuk/poc-1:v1.$BUILD_ID''' 
             }
