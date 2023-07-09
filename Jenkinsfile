@@ -34,15 +34,11 @@ pipeline {
         stage ('Push Artifacts to Jfrog') {
 
             steps {
-                withCredentials([usernamePassword(credentialsId: 'jfrog-dev', passwordVariable: 'jfrog-pass', usernameVariable: 'jfrog-user')]) {
-                sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
-                echo "Username: ${jfrog-user}"
-                echo "Password: ${jfrog-pass}"
                 def jfrogCreds = credentials('jfrog-dev')
                 def jfrog-user = jfrogCreds.username
                 def jfrog-pass = jfrogCreds.password
+                sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
                 curl -u"${jfrog-user}:${jfrog-pass}" -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
-                }
             }
         }
         
