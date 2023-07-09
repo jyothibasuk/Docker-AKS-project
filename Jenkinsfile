@@ -35,10 +35,12 @@ pipeline {
 
             steps {
                 withCredentials([usernamePassword(credentialsId: 'jfrog-dev', passwordVariable: 'jfrogPass', usernameVariable: 'jfrogUser')]) {
-                    maskPasswords("${jfrogPass}") {
-                        sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
-                        curl -u${env.jfrogUser}:${env.jfrogPass} -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
-                    }
+                    script {
+                        maskPasswords("${jfrogPass}") {
+                            sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
+                            curl -u${env.jfrogUser}:${env.jfrogPass} -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
+                            }
+                        }
                 }
             }
         }
