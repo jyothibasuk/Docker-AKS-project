@@ -35,7 +35,7 @@ pipeline {
 
             steps {
                 sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
-                curl -uadmin:AP34mCp3r3nLNeLoHTaGnbrAuEJ -T webapp/target/webapp_$BUILD_ID.war "http://http://20.185.219.50:8082/artifactory/example-repo-local/"'''
+                curl -uadmin:AP34mCp3r3nLNeLoHTaGnbrAuEJ -T webapp/target/webapp_$BUILD_ID.war "http://http://20.185.219.50:8082/artifactory/generic-local/"'''
                 
             }
         }
