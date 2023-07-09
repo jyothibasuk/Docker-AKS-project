@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: jyothibasuk/sample-1:v1.$BUILD_ID
+        image: jyothibasuk/sample-1:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
