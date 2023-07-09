@@ -35,7 +35,7 @@ pipeline {
 
             steps {
                 sh '''cp webapp/target/webapp.war webapp/target/webapp_$BUILD_ID.war
-                curl -uadmin:cmVmdGtuOjAxOjE3MjA0MTgwOTM6Tm9wWnV6VERHVzF1Z3NRMmtuTTZZeWhmTEZE -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/generic-local/jk-2_08.07.2023/"'''
+                curl -uadmin:cmVmdGtuOjAxOjE3MjA0MTg2MTE6Q1ZTYk00STZVQTZxbmY5Z2x6N1kzWVdETXhz -T webapp/target/webapp_$BUILD_ID.war "http://20.185.219.50:8081/artifactory/jfrog-dev/jk-2_08.07.2023/"'''
                 
             }
         }
